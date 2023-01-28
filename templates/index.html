@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+    {% block main %}
+
+            <p>Currently we have {{number_of_users}} users in our database.</p>
+            
+            
+            <h3> Personal Links: </h3>
+                
+            <ul>
+                {%for user in users_list %}
+                    <li>
+                        <a class ="links" href = "http://127.0.0.1:8080/{{user.user_id}}">{{user.user_name}}</a> 
+                    </li>
+                    {% endfor %} 
+            </ul>
+            
+            <!-- Condition to check if the current page is not the first page -->
+            <!-- If not, show a previous button -->
+            {% if page > 1 %}
+                <a class ="links" href="?page={{page-1}}">&lt&lt Previous</a>
+            {% endif %}
+
+            <!-- Condition to check if the current page is not the last page -->
+            <!-- If not, show a next button -->
+            {% if (page*per_page) < number_of_users %}
+                <a class ="links" href="?page={{page+1}}">Next &gt&gt</a>
+            {% endif %}
+        
+            <h3>Exercises:</h3>
+        <ul>
+            <li>Abstract index.html and about.html to share as much code as possible (☑️) </li>
+            <li>Query the CSV file inside '/data' to get how many users are there, and print it in the index.html file (☑️) </li>
+            <li>Create an route that receives an arbitrary user id and displays this user's information (☑️) </li>
+            <li>Create clickable user links to their page, while integrating pagination (☑️) </li>
+        </ul>
+    {% endblock %}

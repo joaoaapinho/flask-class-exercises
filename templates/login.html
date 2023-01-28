@@ -1,0 +1,23 @@
+{% extends "base.html"%}
+
+
+{% block main %}
+
+<form action = "/handle-login" method = "POST">
+
+    <div>
+        <label for = "put your username"> Put your username:</label>
+        <input name = "username" type = "text">
+    </div>
+
+    <div>
+        <label for = "put in your password"> Put your password: </label>
+        <input name = "password" type = "password">
+    </div>
+
+    <div>
+        <label type = "submit" name= "login" </label>
+
+</form>
+{% endblock %}
+
